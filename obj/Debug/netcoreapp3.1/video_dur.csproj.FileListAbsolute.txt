@@ -1,0 +1,14 @@
+E:\nxt\dev\C#\Tests\Console\video_dur\bin\Debug\netcoreapp3.1\video_dur.exe
+E:\nxt\dev\C#\Tests\Console\video_dur\bin\Debug\netcoreapp3.1\video_dur.deps.json
+E:\nxt\dev\C#\Tests\Console\video_dur\bin\Debug\netcoreapp3.1\video_dur.runtimeconfig.json
+E:\nxt\dev\C#\Tests\Console\video_dur\bin\Debug\netcoreapp3.1\video_dur.runtimeconfig.dev.json
+E:\nxt\dev\C#\Tests\Console\video_dur\bin\Debug\netcoreapp3.1\video_dur.dll
+E:\nxt\dev\C#\Tests\Console\video_dur\bin\Debug\netcoreapp3.1\video_dur.pdb
+E:\nxt\dev\C#\Tests\Console\video_dur\obj\Debug\netcoreapp3.1\video_dur.csprojAssemblyReference.cache
+E:\nxt\dev\C#\Tests\Console\video_dur\obj\Debug\netcoreapp3.1\video_dur.AssemblyInfoInputs.cache
+E:\nxt\dev\C#\Tests\Console\video_dur\obj\Debug\netcoreapp3.1\video_dur.AssemblyInfo.cs
+E:\nxt\dev\C#\Tests\Console\video_dur\obj\Debug\netcoreapp3.1\video_dur.csproj.CoreCompileInputs.cache
+E:\nxt\dev\C#\Tests\Console\video_dur\obj\Debug\netcoreapp3.1\video_dur.dll
+E:\nxt\dev\C#\Tests\Console\video_dur\obj\Debug\netcoreapp3.1\video_dur.pdb
+E:\nxt\dev\C#\Tests\Console\video_dur\obj\Debug\netcoreapp3.1\video_dur.genruntimeconfig.cache
+E:\nxt\dev\C#\Tests\Console\video_dur\bin\Debug\netcoreapp3.1\Program.cs
