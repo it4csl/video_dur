@@ -22,6 +22,13 @@ namespace video_dur
             double allTime = 0;
             int lineLength = 0;
 
+            string head = $"{"NAME",-90} {"TIME",-17} | {"COUNT"}";
+            string LL = new string('#', head.Length);
+            string LS = new string('-', head.Length);
+            Console.WriteLine(LL);
+            Console.WriteLine(head);
+            Console.WriteLine(LL);
+
             Parallel.ForEach(dirInRootDir, (currentDir) =>
             {
                 List<FileInfo> allFileFromDirAndSubDir = GetAllFileFromDirAndSubDir(currentDir);
@@ -35,25 +42,27 @@ namespace video_dur
 
                 allTime += allTimeDir;
                 string time = SecondsInTime(allTimeDir);
-                string outData = $"{currentDir,-90} {time,-17} | {allFileFromDirAndSubDir.Count}";
+                string outData = $"{currentDir,-90}| {time,-17}| {allFileFromDirAndSubDir.Count}";
+                lineLength = outData.Length;
+                
                 Console.WriteLine(outData);
+                Console.WriteLine(LS);
             });
 
-            Console.WriteLine("");
-
-            string LL = new string('#', lineLength);
-            Console.WriteLine(LL);
+            //string LL = new string('#', lineLength);
+            Console.WriteLine($"\n{LL}");
 
             Parallel.ForEach(filesInRootDir, (currentFile) =>
             {
                 double seconds = getDurationFromFile(currentFile);
                 allTime += seconds;
                 string time = SecondsInTime(seconds);
-                Console.WriteLine($"{currentFile,-90} {time,-15}");
+                
+                Console.WriteLine($"{currentFile,-90}| {time,-15}");
+                Console.WriteLine(LS);
             });
 
-            Console.WriteLine("");
-            Console.WriteLine(LL);
+            Console.WriteLine($"\n{LL}");
             // ############################################################################
             // вывод общего времени всех файлов
             // ############################################################################
