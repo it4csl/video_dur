@@ -58,7 +58,8 @@ namespace video_dur
             sw.Stop();
             TimeSpan interval2 = TimeSpan.FromMilliseconds(sw.ElapsedMilliseconds);
             string time2 = $"{interval2.Seconds}s:{interval2.Milliseconds}ms";
-            Console.WriteLine(time2);           
+            Console.WriteLine(time2);
+            Console.ReadLine();
         }
 
         static string SecondsInTime(double seconds)
