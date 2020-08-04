@@ -3,6 +3,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace video_dur
 {
@@ -20,31 +21,52 @@ namespace video_dur
 
             double allTime = 0;
             int lineLength = 0;
-            foreach (var path in dirInRootDir)
+            //foreach (var path in dirInRootDir)
+            //{
+            //    List<FileInfo> allFileFromDirAndSubDir = GetAllFileFromDirAndSubDir(path);
+            //    double allTimeDir = 0;
+
+            //    Parallel.ForEach(allFileFromDirAndSubDir, (currentFile) =>
+            //    {
+            //        double seconds = getDurationFromFile(currentFile.FullName);
+            //        allTimeDir += seconds;
+            //    });
+
+            //    allTime += allTimeDir;
+            //    string time = SecondsInTime(allTimeDir);
+            //    string outData = $"{path,-90} {time,-17} | {allFileFromDirAndSubDir.Count}";
+            //    lineLength = outData.Length;
+            //    Console.WriteLine(outData);
+            //}
+            Parallel.ForEach(dirInRootDir, (currentDir) =>
             {
-                List<FileInfo> allFileFromDirAndSubDir = GetAllFileFromDirAndSubDir(path);
+                List<FileInfo> allFileFromDirAndSubDir = GetAllFileFromDirAndSubDir(currentDir);
                 double allTimeDir = 0;
-                foreach (var f in allFileFromDirAndSubDir)
+
+                Parallel.ForEach(allFileFromDirAndSubDir, (currentFile) =>
                 {
-                    double seconds = getDurationFromFile(f.FullName);
+                    double seconds = getDurationFromFile(currentFile.FullName);
                     allTimeDir += seconds;
-                }
+                });
+
                 allTime += allTimeDir;
                 string time = SecondsInTime(allTimeDir);
-                string outData = $"{path,-90} {time,-17} | {allFileFromDirAndSubDir.Count}";
-                lineLength = outData.Length;
+                string outData = $"{currentDir,-90} {time,-17} | {allFileFromDirAndSubDir.Count}";
                 Console.WriteLine(outData);
-            }
+            });
+
             Console.WriteLine("");
+
             string LL = new string('#', lineLength);
             Console.WriteLine(LL);
-            foreach (string file in filesInRootDir)
+
+            Parallel.ForEach(filesInRootDir, (currentFile) =>
             {
-                double seconds = getDurationFromFile(file);
+                double seconds = getDurationFromFile(currentFile);
                 allTime += seconds;
                 string time = SecondsInTime(seconds);
-                Console.WriteLine($"{file,-90} {time,-15}");
-            }
+                Console.WriteLine($"{currentFile,-90} {time,-15}");
+            });
 
             Console.WriteLine("");
             Console.WriteLine(LL);
